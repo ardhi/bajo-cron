@@ -1,0 +1,29 @@
+{
+  "name": "bajo-cron",
+  "version": "0.2.0",
+  "description": "Cron for Bajo Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ardhi/bajo-cron.git"
+  },
+  "keywords": [
+    "cron",
+    "schedule",
+    "bajo",
+    "framework"
+  ],
+  "author": "Ardhi Lukianto <ardhi@lukianto.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ardhi/bajo-cron/issues"
+  },
+  "homepage": "https://github.com/ardhi/bajo-cron#readme",
+  "dependencies": {
+    "cron": "^3.1.6"
+  }
+}

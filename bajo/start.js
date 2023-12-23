@@ -21,14 +21,14 @@ async function runTool (job) {
   const tool = this.bajo.tools.find(t => (t.ns === ns || t.nsAlias === ns))
   if (tool) {
     const mod = await importModule(tool.file)
-    const opts = { ns, toc: false, path: name, params, args: job.params, returnEarly: true }
+    const opts = { ns, toc: false, path: name, params, args: job.params }
     const handler = mod.handler ?? mod
     await handler.call(this, opts)
   } else return print.__('Can\'t find tool for job \'%s:%s\'', job.plugin, job.name)
 }
 
 async function start () {
-  const { log, dayjs } = this.bajo.helper
+  const { log, dayjs, secToHms } = this.bajo.helper
 
   for (const job of this.bajoCron.jobs) {
     async function onTick () {
@@ -52,7 +52,7 @@ async function start () {
       if (err) log.error(err)
       else {
         const now = dayjs()
-        log.trace('Job \'%s:%s\' completed, time taken: %sms', job.plugin, job.name, now.diff(job.runAt))
+        log.trace('Job \'%s:%s\' completed, time taken: %s', job.plugin, job.name, secToHms(now.diff(job.runAt), true))
       }
       job.runAt = null
     }

@@ -1,0 +1,10 @@
+{
+  "Can't run cron in tool mode!": "Tidak bisa menjalankan cron di mode perkakas",
+  "Job '%s' must have a valid cron pattern": "Unit kerja '%s' harus memiliki sebuah cron pattern yang valid",
+  "Job '%s' must have a valid handler": "Unit kerja '%s' harus memiliki sebuah handler yang valid",
+  "Job '%s:%s' is still running, skipped": "Unit kerja '%s:%s' masih berjalan, abaikan",
+  "Job '%s:%s' is running...": "Unit kerja '%s:%s' sedang berjalan...",
+  "Job '%s:%s' completed, time taken: %s": "Unit kerja '%s:%s' selesai, waktu ditempuh: %s",
+  "Job '%s:%s' failed with error: %s, time taken: %s": "Unit kerja '%s:%s' gagal dengan kesalahan: %s, waktu ditempuh: %s",
+  "Job '%s@%s' is started": "Unit kerja '%s:%s' telah distart"
+}

@@ -1,20 +1,26 @@
-async function start () {
-  const { getConfig, eachPlugins, readConfig, fatal, buildName } = this.bajo.helper
-  this.bajoCron.jobs = []
-  const config = getConfig()
-  if (config.tool) return // can't run in sidetool mode
-  await eachPlugins(async function ({ file, dir, plugin }) {
+import path from 'path'
+
+async function init () {
+  const { eachPlugins, readConfig } = this.app.bajo
+  const { camelCase } = this.app.bajo.lib._
+
+  this.jobs = []
+  if (this.app.bajo.applet) {
+    this.print.warn('Can\'t run cron in tool mode!')
+    return
+  }
+  await eachPlugins(async function ({ file, dir, ns }) {
     const item = await readConfig(file, { ignoreError: true })
     if (!item) return undefined
-    item.name = buildName(file, `${dir}/job`)
-    item.plugin = plugin
+    item.name = camelCase(path.basename(file.replace(`${dir}/job`), path.extname(file)))
+    item.ns = ns
     item.params = item.params ?? []
     item.options = item.options ?? {}
     if (typeof item.params === 'string') item.params = [item.params]
-    if (!item.cron) fatal('Job \'%s\' must have a valid cron pattern')
-    if (!item.handler) fatal('Job \'%s\' must have a valid handler')
-    this.bajoCron.jobs.push(item)
-  }, 'job/**/*.*')
+    if (!item.cron) this.fatal('Job \'%s\' must have a valid cron pattern')
+    if (!item.handler) this.fatal('Job \'%s\' must have a valid handler')
+    this.jobs.push(item)
+  }, { glob: 'job/**/*.*', baseNs: this.ns })
 }
 
-export default start
+export default init

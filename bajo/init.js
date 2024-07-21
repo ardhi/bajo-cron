@@ -10,7 +10,7 @@ async function init () {
     return
   }
   await eachPlugins(async function ({ file, dir, ns }) {
-    const item = await readConfig(file, { ignoreError: true })
+    const item = await readConfig(file, { ns, ignoreError: true })
     if (!item) return undefined
     item.name = camelCase(path.basename(file.replace(`${dir}/job`), path.extname(file)))
     item.ns = ns

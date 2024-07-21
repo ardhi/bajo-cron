@@ -6,7 +6,7 @@ Plugin name: **bajoCron**, alias: **cfg**
 
 > <br />**Attention**: I do NOT accept any pull request at the moment, thanks!<br /><br />
 
-Cron support for [Bajo Framework](https://github.com/ardhi/bajo)
+Cron support for [Bajo](https://github.com/ardhi/bajo).
 
 ## Installation
 

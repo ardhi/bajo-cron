@@ -20,7 +20,7 @@ async function init () {
     if (!item.cron) this.fatal('Job \'%s\' must have a valid cron pattern')
     if (!item.handler) this.fatal('Job \'%s\' must have a valid handler')
     this.jobs.push(item)
-  }, { glob: 'job/**/*.*', baseNs: this.ns })
+  }, { glob: 'job/**/*.*', prefix: this.ns })
 }
 
 export default init

@@ -1,6 +1,6 @@
 {
   "name": "bajo-cron",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cron for Bajo Framework",
   "main": "index.js",
   "scripts": {

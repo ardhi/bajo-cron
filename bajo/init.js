@@ -2,7 +2,7 @@ import path from 'path'
 
 async function init () {
   const { eachPlugins, readConfig } = this.app.bajo
-  const { camelCase } = this.app.bajo.lib._
+  const { camelCase } = this.lib._
 
   this.jobs = []
   if (this.app.bajo.applet) {

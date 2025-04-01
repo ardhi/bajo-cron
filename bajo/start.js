@@ -9,7 +9,7 @@ function exec (job) {
 
 async function start () {
   const { callHandler, secToHms } = this.app.bajo
-  const { dayjs } = this.app.bajo.lib
+  const { dayjs } = this.lib
 
   if (this.app.bajo.applet) return
 

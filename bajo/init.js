@@ -2,14 +2,15 @@ import path from 'path'
 
 async function init () {
   const { eachPlugins, readConfig } = this.app.bajo
-  const { camelCase } = this.lib._
+  const { camelCase } = this.app.lib._
 
   this.jobs = []
-  if (this.app.bajo.applet) {
-    this.print.warn('Can\'t run cron in tool mode!')
+  if (this.app.applet) {
+    this.print.warn('Can\'t run cron in applet mode!')
     return
   }
-  await eachPlugins(async function ({ file, dir, ns }) {
+  await eachPlugins(async function ({ file, dir }) {
+    const { ns } = this
     const item = await readConfig(file, { ns, ignoreError: true })
     if (!item) return undefined
     item.name = camelCase(path.basename(file.replace(`${dir}/job`), path.extname(file)))

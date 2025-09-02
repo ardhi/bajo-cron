@@ -8,10 +8,11 @@ function exec (job) {
 }
 
 async function start () {
-  const { callHandler, secToHms } = this.app.bajo
-  const { dayjs } = this.lib
+  const { secToHms } = this.app.lib.aneka
+  const { callHandler } = this.app.bajo
+  const { dayjs } = this.app.lib
 
-  if (this.app.bajo.applet) return
+  if (this.app.applet) return
 
   for (const job of this.jobs) {
     async function onTick () {

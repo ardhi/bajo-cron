@@ -15,7 +15,7 @@ $ npm install bajo-cron
 ```
 
 Now open your ```<bajo-data-dir>/cron/.plugins``` and put ```bajo-cron``` in it
-- [Contributing](CONTRIBUTING.md)
+- [Contributing](wiki/CONTRIBUTING.md)
 
 ## Hire Me
 
